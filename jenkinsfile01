@@ -7,23 +7,23 @@ pipeline {
                 echo 'Hello, Maven'
             }
         }
-		 		stage('Compile'){
-					agent { label "master"}
-					steps {
-				 			echo 'compile the code'
-					}
-		 		}
-		 		stage('Copy elf'){
-					agent { label "master"}
-					steps {
-						echo 'copying elfs'
-					}
-		 		}
-		 		stage('HW tests'){
-					agent { label "ASICVLD02"}
-					steps{
-						echo 'HW tests started'
-					}
-		 		}
+		stage('Compile'){
+			agent { label "master"}
+			steps {
+				 	echo 'compile the code'
+			}
+		 }
+		 stage('Copy elf'){
+			agent { label "master"}
+			steps {
+					echo 'copying elfs'
+			}
+		 }
+		 stage('HW tests'){
+			agent { label "ASICVLD02"}
+			steps{
+					echo 'HW tests started'
+			}
+		 }
     }
 }
