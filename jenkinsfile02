@@ -1,0 +1,17 @@
+pipeline {
+    agent none  
+    stages {
+        stage('Build') {
+            agent { 
+            	node {
+            			label "master"
+            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
+            	}
+            }
+            steps {
+                echo 'Hello, Maven'
+            }
+        }
+		 		
+    }
+}
