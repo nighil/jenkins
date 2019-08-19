@@ -6,9 +6,6 @@ pipeline {
             steps {
                 echo 'Hello, Maven'
             }
-						steps {
-							bat 'mkdir Builds'	
-						}
         }
 		 		stage('Compile'){
 					agent { label "master"}
