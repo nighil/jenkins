@@ -1,0 +1,32 @@
+pipeline {
+    agent none  
+    stages {
+        stage('Build') {
+            agent { label "master"}
+            steps {
+                echo 'Hello, Maven'
+            }
+			steps{
+					bat 'mkdir Builds'	
+			}
+        }
+		 stage('Compile'){
+			agent { label "master"}
+			steps{
+				 echo 'compile the code'
+			}
+		 }
+		 stage('Copy elf'){
+			agent { label "master"}
+			steps{
+				echo 'copying elfs'
+			}
+		 }
+		 stage('HW tests'){
+			agent { label "ASICVLD02"}
+			steps{
+				echo 'HW tests started'
+			}
+		 }
+    }
+}
