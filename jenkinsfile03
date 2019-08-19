@@ -1,0 +1,38 @@
+pipeline {
+    agent none  
+    stages {
+        stage('Parallel build tests') {
+        	parallel {
+	        			stage('parallel stage one'){
+				            agent { 
+					            	node {
+					            			label "master"
+					            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
+					            	}
+				            }
+				            steps {
+				                echo 'parallel stage one'
+				            }
+			          } 
+			          stage('parallel stage two'){
+				            agent { 
+					            	node {
+					            			label "master"
+					            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
+					            	}
+				            }
+				            steps {
+				                echo 'parallel stage two'
+				            }
+			          } 
+	          }
+	          stage('Example Test') {
+            	agent { label "ASICVLD02" } 
+            	steps {
+                echo 'Hello, JDK'
+               }
+        	}
+       }
+		 		
+    }
+}
