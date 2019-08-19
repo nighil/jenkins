@@ -11,9 +11,9 @@ pipeline {
 					            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
 					            	}
 				            }
-				            steps {
+				           
 				                echo 'parallel stage one'
-				            }
+				            
 			          }, 
 			          'parallel stage two' :{
 				            agent { 
@@ -22,9 +22,9 @@ pipeline {
 					            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
 					            	}
 				            }
-				            steps {
+				           
 				                echo 'parallel stage two'
-				            }
+				            
 			          } 
 	          )
 	          }
