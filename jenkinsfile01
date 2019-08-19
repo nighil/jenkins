@@ -6,19 +6,19 @@ pipeline {
             steps {
                 echo 'Hello, Maven'
             }
-			steps{
+			steps {
 					bat 'mkdir Builds'	
 			}
         }
 		 stage('Compile'){
 			agent { label "master"}
-			steps{
+			steps {
 				 echo 'compile the code'
 			}
 		 }
 		 stage('Copy elf'){
 			agent { label "master"}
-			steps{
+			steps {
 				echo 'copying elfs'
 			}
 		 }
