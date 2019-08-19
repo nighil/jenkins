@@ -2,34 +2,20 @@ pipeline {
     agent none  
     stages {
         stage('Parallel build tests') {
-         step{
+         steps {
         	parallel (
 	        			'parallel stage one' :{
-				            agent { 
-					            	node {
-					            			label "master"
-					            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
-					            	}
-				            }
-				           
-				                echo 'parallel stage one'
-				            
+				          
+				                echo 'parallel stage one'  
 			          }, 
 			          'parallel stage two' :{
-				            agent { 
-					            	node {
-					            			label "master"
-					            			customWorkspace 'C:\\Users\\7318361\\Documents\\Jenk_build\\pipeline\\jenkins'
-					            	}
-				            }
-				           
+				         
 				                echo 'parallel stage two'
-				            
-			          } 
+				        } 
 	          )
-	          }
-	          stage('Serial stage') {
-            	agent { label "ASICVLD02" } 
+	         }
+	        stage('Serial stage') {
+            agent { label "ASICVLD02" } 
             	steps {
                 echo 'serial stage'
                }
