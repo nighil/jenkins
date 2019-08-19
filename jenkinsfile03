@@ -2,6 +2,7 @@ pipeline {
     agent none  
     stages {
         stage('Parallel build tests') {
+         step{
         	parallel (
 	        			'parallel stage one' :{
 				            agent { 
@@ -26,6 +27,7 @@ pipeline {
 				            }
 			          } 
 	          )
+	          }
 	          stage('Serial stage') {
             	agent { label "ASICVLD02" } 
             	steps {
