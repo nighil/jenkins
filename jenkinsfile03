@@ -13,7 +13,7 @@ pipeline {
 				            steps {
 				                echo 'parallel stage one'
 				            }
-			          } 
+			          }, 
 			          'parallel stage two' :{
 				            agent { 
 					            	node {
