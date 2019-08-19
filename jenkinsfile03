@@ -26,10 +26,10 @@ pipeline {
 				            }
 			          } 
 	          }
-	          stage('Example Test') {
+	          stage('Serial stage') {
             	agent { label "ASICVLD02" } 
             	steps {
-                echo 'Hello, JDK'
+                echo 'serial stage'
                }
         	}
        }
