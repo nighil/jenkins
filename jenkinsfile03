@@ -2,8 +2,8 @@ pipeline {
     agent none  
     stages {
         stage('Parallel build tests') {
-        	parallel {
-	        			stage('parallel stage one'){
+        	parallel (
+	        			parallel stage one :{
 				            agent { 
 					            	node {
 					            			label "master"
@@ -14,7 +14,7 @@ pipeline {
 				                echo 'parallel stage one'
 				            }
 			          } 
-			          stage('parallel stage two'){
+			          parallel stage two :{
 				            agent { 
 					            	node {
 					            			label "master"
@@ -25,7 +25,7 @@ pipeline {
 				                echo 'parallel stage two'
 				            }
 			          } 
-	          }
+	          )
 	          stage('Serial stage') {
             	agent { label "ASICVLD02" } 
             	steps {
