@@ -31,5 +31,13 @@ pipeline {
                 }
             }
         }
+        stage('compile') {
+        	  agent { 
+        			label "master"
+        		}
+        	steps { 
+        		echo "compile"
+        	}
+        }
     }
 }
