@@ -7,7 +7,7 @@ pipeline {
                 echo 'Hello, Maven'
             }
             steps {
-            	bat label: '', script: 'mkdir Buids'
+            	  mkdir 'Buids'
             }
         }
 		 		stage('Compile'){
