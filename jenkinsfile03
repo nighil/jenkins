@@ -7,27 +7,17 @@ pipeline {
                     agent {
                         label "master"
                     }
-                    steps {
-                        bat "run-tests.bat"
-                    }
-                    post {
-                        always {
-                            junit "**/TEST-*.xml"
-                        }
-                    }
+                    steps { 
+        								echo 'compile finished01' 
+        							}
                 }
                 stage('Test On Linux') {
                     agent {
                         label "master"
                     }
-                    steps {
-                        sh "run-tests.sh"
-                    }
-                    post {
-                        always {
-                            junit "**/TEST-*.xml"
-                        }
-                    }
+                   steps { 
+        							echo 'compile finished02' 
+        						}
                 }
             }
         }
@@ -36,7 +26,7 @@ pipeline {
         			label "master"
         		}
         	steps { 
-        		echo 'compile finished' 
+        		echo 'compile finished04' 
         	}
         }
     }
