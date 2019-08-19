@@ -1,26 +1,35 @@
 pipeline {
-    agent none  
+    agent none
     stages {
-        stage('Parallel build tests') {
-         steps {
-        	parallel (
-	        			'parallel stage one' :{
-				          
-				                echo 'parallel stage one'  
-			          }, 
-			          'parallel stage two' :{
-				         
-				                echo 'parallel stage two'
-				        } 
-	          )
-	         }
-	        stage('Serial stage') {
-            agent { label "ASICVLD02" } 
-            	steps {
-                echo 'serial stage'
-               }
-        	}
-       }
-		 		
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                    agent {
+                        label "master"
+                    }
+                    steps {
+                        bat "run-tests.bat"
+                    }
+                    post {
+                        always {
+                            junit "**/TEST-*.xml"
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    agent {
+                        label "master"
+                    }
+                    steps {
+                        sh "run-tests.sh"
+                    }
+                    post {
+                        always {
+                            junit "**/TEST-*.xml"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
