@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Parallel build tests') {
         	parallel (
-	        			parallel stage one :{
+	        			'parallel stage one' :{
 				            agent { 
 					            	node {
 					            			label "master"
@@ -14,7 +14,7 @@ pipeline {
 				                echo 'parallel stage one'
 				            }
 			          } 
-			          parallel stage two :{
+			          'parallel stage two' :{
 				            agent { 
 					            	node {
 					            			label "master"
