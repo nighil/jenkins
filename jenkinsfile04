@@ -16,7 +16,7 @@ pipeline {
                         label "master"
                     }
                    steps { 
-        							eccompile finished02' 
+        							echo 'compile finished02' 
         						}
                 }
             }
@@ -35,7 +35,7 @@ pipeline {
 		success	{ echo 'build success'}
 		failure	{ echo 'build failure'}
 		unstable { echo 'Build unstable'}
-		changed { echo 'This will run only if the state of the Pipeline has changed'  
+		changed{ echo 'This will run only if the state of the Pipeline has changed'  
 				echo 'For example, if the Pipeline was previously failing but is now successful' }
 	}
 }
