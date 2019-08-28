@@ -13,7 +13,7 @@ pipeline {
                 }
                 stage('Test On Linux') {
                     agent {
-                        label "masterr"
+                        label "master"
                     }
                    steps { 
         							echo 'compile finished02' 
