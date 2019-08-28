@@ -16,7 +16,7 @@ pipeline {
                         label "master"
                     }
                    steps { 
-        							echo 'compile finished02' 
+        							eccompile finished02' 
         						}
                 }
             }
