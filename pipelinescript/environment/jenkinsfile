@@ -1,0 +1,14 @@
+pipeline{
+	agent any
+	envirronment{
+		CC='MW'
+		CC1='GCC'
+		CC2='RISCV'
+	}
+	stages{
+		stage("Setting Variables")
+		  step{
+		  		echo "env.CC"
+		  }
+	}
+}
